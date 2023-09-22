@@ -1,0 +1,12 @@
+.navbar {
+    background: #1c56c4;
+    color: whitesmoke
+}
+
+.navbar a {
+    opacity: 0.5;
+}
+
+.is-active {
+    opacity: 1;
+}

@@ -1,0 +1,9 @@
+<nav mat-tab-nav-bar [tabPanel]="tabPanel" class="navbar">
+    <a mat-tab-link routerLink="/" routerLinkActive="is-active">Home</a>
+    <a mat-tab-link routerLink="/signin" routerLinkActive="is-active">Signin</a>
+    <a mat-tab-link routerLink="/signup" routerLinkActive="is-active">Signup</a>
+</nav>
+
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<router-outlet></router-outlet>

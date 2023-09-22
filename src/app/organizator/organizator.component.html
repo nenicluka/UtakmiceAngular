@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizator</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Svetlo siva pozadina */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #333; /* Tamno siva pozadina za naslov */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center; /* Poravnavanje na sredinu */
+            align-items: baseline;
+        }
+
+        .profile-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 20px 30px; /* Povećana visina i širina dugmeta */
+            font-size: 24px; /* Povećana veličina fonta */
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            position: absolute;
+            top: 20px; /* Pomereno više */
+            right: 10px;
+        }
+
+        .profile-button:hover {
+            background-color: #555; /* Tamnija siva boja na hover */
+            transform: translateY(-5px); /* Podiže se za 5 piksela */
+        }
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #333;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .profile-button:hover .profile-menu {
+            display: block;
+        }
+
+        .profile-menu-item {
+            color: white;
+            padding: 10px 20px;
+            text-align: right;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .profile-menu-item:hover {
+            background-color: #555; /* Tamnija siva boja na hover */
+            transform: scale(1.05);
+        }
+
+        .create-tournament-button {
+            background-color: #007BFF; /* Plava boja za dugme */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px auto;
+            display: block;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .create-tournament-button:hover {
+            background-color: #0056b3; /* Tamnija plava boja na hover */
+            transform: scale(1.05);
+        }
+
+        .tournaments {
+            text-align: left;
+            margin: 20px 20px 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ORGANIZATOR</h1>
+        <button class="profile-button">
+            Profil
+            <div class="profile-menu">
+                <div class="profile-menu-item">Podaci o korisniku</div>
+                <div class="profile-menu-item">Promeni Lozinku</div>
+                <div class="profile-menu-item">Odjavi se</div>
+            </div>
+        </button>
+    </div>
+    <div class="create-tournament-button">Kreiraj Turnir</div>
+    <div class="tournaments">
+        <h2>TURNIRI:</h2>
+        <!-- Ovde bi se prikazivali turniri iz baze -->
+    </div>
+</body>
+</html>

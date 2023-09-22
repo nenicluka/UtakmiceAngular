@@ -1,0 +1,15 @@
+<form class="example-form">
+    <mat-form-field *ngFor="let inputField of inputFields" class="example-full-width">
+        <mat-label>
+            {{inputField}}
+        </mat-label>
+
+        <input matInput [placeholder]="inputField" [attr.type]="inputField === 'Password' ? 'password' : 'text'"
+            autocomplete="off">
+
+    </mat-form-field>
+
+    <hr>
+
+    <button mat-raised-button>Sign up</button>
+</form>

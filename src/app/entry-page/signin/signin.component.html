@@ -1,0 +1,20 @@
+<form class="example-form">
+    <mat-form-field *ngFor="let inputField of inputFields" class="example-full-width">
+        <mat-label>
+            {{inputField}}
+        </mat-label>
+
+        <input matInput [name]="inputField.toLowerCase()" [placeholder]="inputField"
+            [attr.type]="inputField === 'Password' ? 'password' : 'text'" autocomplete="off"
+            [(ngModel)]="userData[inputField.toLowerCase()]" required>
+    </mat-form-field>
+
+    <!-- <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="reader" checked>Reader</mat-radio-button>
+        <mat-radio-button value="moderator">Moderator</mat-radio-button>
+    </mat-radio-group> -->
+
+    <hr>
+
+    <button mat-raised-button (click)="signin()">Sign in</button>
+</form>
