@@ -1,0 +1,40 @@
+<spinner *ngIf="!hasLoaded"></spinner>
+
+<div class="tim-container">
+
+    <h2>
+        {{tim$.value.naziv}}
+    </h2>
+
+    <h3>
+    </h3>
+
+    <h3>
+        Mesto: {{tim$.value.mesto}}
+    </h3>
+
+</div>
+
+<div class="turnir-container">
+    <div *ngFor="let turnir of tim$.value.turnir" class="turnir-container">
+
+        <h2 (click)="goToTurnir(turnir.id)" style="cursor:pointer">
+            {{turnir.naziv}} {{turnir.mesto}}
+        </h2>
+
+        <h3>
+            MaxBrTimova: {{turnir.brojTimova}}
+        </h3>
+
+    </div>
+</div>
+
+<h1 style="color:white">Igraci:</h1>
+
+<div class="igrac-container">
+    <div *ngFor="let igrac of igrac" class="igrac-container">
+        <h2>{{igrac.ime}} {{igrac.prezime}}</h2>
+
+    </div>
+
+</div>

@@ -1,0 +1,54 @@
+<spinner [isSpinnerActive]="!length"></spinner>
+
+<div *ngIf="length" class="tim-container">
+    <paginator [length]="length" (pageChanged)=" onChangingPage($event)">
+    </paginator>
+
+    <mat-card *ngFor="let tim of timForCurrentPage$ | async" class="tim-card">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title (click)="goToTim(tim.id)" style="cursor: pointer;">
+                    {{tim.naziv}}
+                </mat-card-title>
+
+                <mat-card-subtitle>
+
+                </mat-card-subtitle>
+
+
+            </mat-card-title-group>
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+
+        <!-- treba da napravim da ne moze se klikce na ove chipove, tj da ne mog da menjaju boju-->
+
+        <mat-card-content>
+            <mat-card-subtitle>
+                Turniri:
+            </mat-card-subtitle>
+
+            <mat-chip-listbox>
+                <mat-chip-option *ngFor="let turnir of tim.turnir" (click)="goToTurnir(turnir.id)">
+                    {{turnir.naziv}} {{turnir.mesto}}
+                </mat-chip-option>
+            </mat-chip-listbox>
+
+        </mat-card-content>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-content>
+            <mat-card-subtitle>
+                Igraci:
+            </mat-card-subtitle>
+
+            <mat-chip-listbox>
+                <mat-chip-option *ngFor="let igrac of tim.igrac">
+                    {{igrac.ime}}
+                </mat-chip-option>
+            </mat-chip-listbox>
+
+        </mat-card-content>
+    </mat-card>
+</div>

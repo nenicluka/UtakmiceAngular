@@ -1,0 +1,21 @@
+.turnir-container {
+    height: 400px;
+    margin: 20px
+}
+
+.turnir-image {
+    max-width: 400px;
+    max-height: 400px;
+    float: right
+}
+
+.tim-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tim-image {
+    max-width: 200px;
+    max-height: 150px;
+    float: right
+}

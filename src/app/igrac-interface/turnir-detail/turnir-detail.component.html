@@ -1,0 +1,29 @@
+<spinner *ngIf="!hasLoaded"></spinner>
+
+<div *ngIf="hasLoaded">
+    <div class="turnir-container">
+
+        <h2>
+            {{turnir$.value.naziv}} {{turnir$.value.mesto}}
+        </h2>
+
+        <h3>
+            BrojIgraca: {{turnir$.value.brojTimova}}
+        </h3>
+
+        <p>{{turnir$.value.opis}}</p>
+    </div>
+
+
+    <div class="tim-container">
+        <div *ngFor="let tim of tim" style="margin:20px;border-bottom: 2px solid grey;">
+        
+            <h2 style="cursor: pointer;" (click)="goToTim(tim.id)">Naziv: {{tim.naziv}}</h2>
+            <h2>Mesto: {{tim.mesto}}</h2>
+        </div>
+    </div>
+
+    <h1 *ngIf="tim.length === 0" style="color:white">
+        Turnir trenutno nema prijavljene timove
+    </h1>
+</div>

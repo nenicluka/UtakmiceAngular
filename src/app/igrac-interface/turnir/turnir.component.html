@@ -1,0 +1,39 @@
+<spinner [isSpinnerActive]="!length"></spinner>
+
+<div *ngIf="length" class="turnir-container">
+    <paginator [length]="length" (pageChanged)=" onChangingPage($event)">
+    </paginator>
+
+    <mat-card *ngFor="let turnir of turnirForCurrentPage$ | async" class="turnir-card">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title (click)="goToTurnir(turnir.id)" style="cursor: pointer;">
+                    {{turnir.naziv}} {{turnir.mesto}}
+                </mat-card-title>
+
+                <mat-card-subtitle>
+
+                </mat-card-subtitle>
+
+                
+            </mat-card-title-group>
+        </mat-card-header>
+
+        <mat-card-content>
+            {{turnir.opis}}
+        </mat-card-content>
+    </mat-card>
+
+    <!-- <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Leave a comment</mat-label>
+          <textarea  #label (input)="setvalue(label.value)"   [(ngModel)]="nesto"></textarea>
+        </mat-form-field>
+      </form> -->
+
+</div>

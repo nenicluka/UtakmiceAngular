@@ -1,0 +1,12 @@
+.tim-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.tim-card {
+    width: 90vw;
+    margin-top: 20px;
+}
