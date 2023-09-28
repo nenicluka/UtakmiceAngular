@@ -10,6 +10,7 @@ import { ProfileComponent } from '../igrac-interface/profile/profile.component';
 import { TimComponent } from '../igrac-interface/tim/tim.component';
 import { TimDetailComponent } from '../igrac-interface/tim-detail/tim-detail.component';
 import { TurnirDetailComponent } from '../igrac-interface/turnir-detail/turnir-detail.component';
+import { IgracComponent } from '../igrac-interface/igrac/igrac.component';
 // import { ReaderInterfaceComponent } from '../reader-interface/reader-interface.component';
 // import { BooksComponent } from '../reader-interface/books/books.component';
 // import { ProfileComponent } from '../reader-interface/profile/profile.component';
@@ -26,12 +27,12 @@ const routes: Routes = [
 
 
     {
-        path: "r", component: IgracInterfaceComponent, children: [
+        path: "i", component: IgracInterfaceComponent, children: [
             { path: "tim", component: TimComponent },
             { path: "tim/:id", component: TimDetailComponent },
             { path: "turnir", component: TurnirComponent },
             { path: "turnir/:id", component: TurnirDetailComponent },
-            //{ path: "genres", component: GenresComponent },
+            { path: "igrac", component: IgracComponent},
            // { path: "genres/:id", component: GenreDetailComponent },
             { path: "profile", component: ProfileComponent },
         ]

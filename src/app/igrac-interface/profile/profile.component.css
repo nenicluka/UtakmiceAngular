@@ -1,5 +1,25 @@
-.mat-mdc-chip-set {
-    max-width: 200px;
-    float: right;
-    margin: 10px;
-}
+/* Stilizacija za mat-chip-listbox */
+.mat-mdc-chip-set-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Stilizacija za mat-chip */
+  .mat-chip {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .mat-chip:hover {
+    background-color: #007bff; /* Promenite boju prema vašim željama */
+    color: white; /* Promenite boju teksta prema vašim željama */
+    transform: scale(1.1);
+  }
+  
+  /* Stilizacija za naslov */
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+  }

@@ -1,15 +1,59 @@
-<form class="example-form">
-    <mat-form-field *ngFor="let inputField of inputFields" class="example-full-width">
-        <mat-label>
-            {{inputField}}
-        </mat-label>
+<div class="signup-form-container">
+    <form class="signup-form">
+        <mat-form-field class="input-field">
+            <mat-label>
+                Ime
+            </mat-label>
 
-        <input matInput [placeholder]="inputField" [attr.type]="inputField === 'Password' ? 'password' : 'text'"
-            autocomplete="off">
+            <input #ime (input)="inputChange('ime', ime.value)" matInput name="ime"
+                placeholder="Ime" autocomplete="off">
+        </mat-form-field>
 
-    </mat-form-field>
+        <mat-form-field class="input-field">
+            <mat-label>
+                Prezime
+            </mat-label>
 
-    <hr>
+            <input #prezime (input)="inputChange('prezime', prezime.value)" matInput name="prezime"
+                placeholder="Prezime" autocomplete="off">
+        </mat-form-field>
 
-    <button mat-raised-button>Sign up</button>
-</form>
+
+        <mat-form-field class="input-field">
+            <mat-label>
+                Email
+            </mat-label>
+
+            <input #email (input)="inputChange('email', email.value)" matInput name="email" placeholder="Email"
+                autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="input-field">
+            <mat-label>
+                Password
+            </mat-label>
+
+            <input #password (input)="inputChange('password', password.value)" matInput name="password"
+                placeholder="Password" autocomplete="off" type="password">
+        </mat-form-field>
+
+        <hr>
+
+        <div class="signup-btn-container">
+            <button mat-raised-button (click)="signup()">
+                Sign up
+            </button>
+        </div>
+
+        <mat-list role="list">
+            <p *ngFor="let error of errors">
+                <mat-list-item role="listitem">
+                    {{error}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </p>
+        </mat-list>
+        <spinner *ngIf="waitingForSignupResponse"></spinner>
+
+    </form>
+</div>

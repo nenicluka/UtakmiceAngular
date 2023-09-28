@@ -1,20 +1,51 @@
-<form class="example-form">
-    <mat-form-field *ngFor="let inputField of inputFields" class="example-full-width">
-        <mat-label>
-            {{inputField}}
-        </mat-label>
+<div class="signin-form-container ">
+    <form class="signin-form">
+        <mat-form-field class="input-field">
+            <mat-label>
+                Email
+            </mat-label>
 
-        <input matInput [name]="inputField.toLowerCase()" [placeholder]="inputField"
-            [attr.type]="inputField === 'Password' ? 'password' : 'text'" autocomplete="off"
-            [(ngModel)]="userData[inputField.toLowerCase()]" required>
-    </mat-form-field>
+            <input #emailInput (input)="setEmail(emailInput.value)" matInput name="email" placeholder="Email"
+                autocomplete="off">
+        </mat-form-field>
 
-    <!-- <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="reader" checked>Reader</mat-radio-button>
-        <mat-radio-button value="moderator">Moderator</mat-radio-button>
-    </mat-radio-group> -->
+        <mat-form-field class="input-field">
+            <mat-label>
+                Password
+            </mat-label>
 
-    <hr>
+            <input #passwordInput (input)="setPassword(passwordInput.value)" matInput name="password"
+                placeholder="Password" autocomplete="off" type="password">
+        </mat-form-field>
 
-    <button mat-raised-button (click)="signin()">Sign in</button>
-</form>
+        <mat-radio-group class="user-signin-option-container">
+            <mat-radio-button #igracRoleInput (input)="setRole(igracRoleInput.value)" value="igrac"
+                checked>Igrac</mat-radio-button>
+            <mat-radio-button #moderatorRoleInput (input)="setRole(moderatorRoleInput.value)"
+                value="moderator">Moderator</mat-radio-button>
+            <mat-radio-button #organizatorRoleInput (input)="setRole(organizatorRoleInput.value)"
+                value="organizator">Organizator</mat-radio-button>                
+                
+        </mat-radio-group>
+
+        <hr>
+
+        <div class="signin-btn-container">
+            <button mat-raised-button (click)="signin()">
+                Sign in
+            </button>
+        </div>
+
+        <mat-list role="list">
+            <p *ngFor="let error of errors">
+                <mat-list-item role="listitem">
+                    {{error}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </p>
+        </mat-list>
+        
+        <spinner *ngIf="waitingForSigninResponse"></spinner>
+
+    </form>
+</div>

@@ -20,12 +20,18 @@ import { TimComponent } from './igrac-interface/tim/tim.component';
 import { TurnirDetailComponent } from './igrac-interface/turnir-detail/turnir-detail.component';
 import { TimDetailComponent } from './igrac-interface/tim-detail/tim-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { IgracComponent } from './igrac-interface/igrac/igrac.component';
+import { signinReducer } from './store/reducers/signin.reducers';
+import { signupReducer } from './store/reducers/signup.reducers';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,  
 
 
     
@@ -45,10 +51,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TurnirDetailComponent,
     TimDetailComponent,
     BrowserAnimationsModule,
+    MatDialogModule,
+    IgracComponent,
+    PaginatorComponent,
+    StoreModule.forRoot({
+      userSigninCredentials: signinReducer,
+      userSignupCredentials: signupReducer
+    }, {}),
+    EffectsModule.forRoot([]),
 
-
-
- 
     
     
   ],

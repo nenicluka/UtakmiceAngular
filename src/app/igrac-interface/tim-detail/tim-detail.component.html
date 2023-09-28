@@ -16,20 +16,22 @@
 </div>
 
 <div class="turnir-container">
+    <h1>Turniri na koje je ovaj tim prijavljen:</h1>
     <div *ngFor="let turnir of tim$.value.turnir" class="turnir-container">
 
+        
         <h2 (click)="goToTurnir(turnir.id)" style="cursor:pointer">
             {{turnir.naziv}} {{turnir.mesto}}
         </h2>
 
         <h3>
-            MaxBrTimova: {{turnir.brojTimova}}
+            Nagradni Fond: {{turnir.nagradniFond}}
         </h3>
 
     </div>
 </div>
 
-<h1 style="color:white">Igraci:</h1>
+<h1 style="color:rgba(0, 0, 0, 0.678)">Igraci:</h1>
 
 <div class="igrac-container">
     <div *ngFor="let igrac of igrac" class="igrac-container">

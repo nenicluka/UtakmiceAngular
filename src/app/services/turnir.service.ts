@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Turnir } from '../interfaces/Turnir';
 import { Router } from '@angular/router';
+import { DodajTimNaTurnirDto } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,10 @@ export class TurnirService {
 
   goToTurnir(turnirId: number) {
     this.router.navigate(["r/turnir", turnirId]);
+  }
+
+  dodaj(argumenti:DodajTimNaTurnirDto)
+  {
+    this.http.post<Turnir>("http://localhost:3000/Turnir/dodaj", argumenti)
   }
 }
