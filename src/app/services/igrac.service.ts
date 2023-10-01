@@ -10,7 +10,7 @@ export class IgracService {
 
   constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Igrac[]> {
+  getIgrac(): Observable<Igrac[]> {
     return this.http.get<Igrac[]>("http://localhost:3000/igrac/getAll")
       .pipe();
   }

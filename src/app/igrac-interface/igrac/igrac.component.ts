@@ -44,7 +44,7 @@ export class IgracComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    this.igracService.getBooks()
+    this.igracService.getIgrac()
       .subscribe({
         next: (igrac) => {
           this.igrac$.next(igrac)

@@ -11,6 +11,8 @@ import { Tim } from 'src/app/interfaces/Tim';
 import { TimService } from 'src/app/services/tim.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TurnirService } from 'src/app/services/turnir.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateTeamComponent } from '../create-team/create-team.component';
 
 @Component({
   selector: 'app-tim',
@@ -28,7 +30,8 @@ export class TimComponent implements OnInit {
     private timService: TimService,
     private router: Router,
     private route: ActivatedRoute,
-    private turnirService: TurnirService) { }
+    private turnirService: TurnirService,
+    public dialog: MatDialog,) { }
 
   ngOnInit(): void {
     this.timService.getAllTims()
@@ -56,5 +59,11 @@ export class TimComponent implements OnInit {
 
   goToTurnir(id: number) {
     this.turnirService.goToTurnir(id)
+  }
+
+  openDialog(): void {
+    this.dialog.open(CreateTeamComponent, {
+      width: '550px'
+    });
   }
 }

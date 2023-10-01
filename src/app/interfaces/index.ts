@@ -8,5 +8,9 @@ import { UserSignin } from "./UserSignin";
 import { UserSignup } from "./UserSignup";
 import { Tokens } from "./Tokens";
 import { DodajTimNaTurnirDto } from "./DodajTimNaTurnirDto";
+import { User } from "./User";
+import { CreateTeam } from "./CreateTeam";
+import { UpdatePasssword } from "./UpdatePassword";
+import { UserData } from "./UserData";
 
-export { Tim, Turnir, Igrac, Organizator, Moderator, Role, UserSignin, UserSignup, Tokens, DodajTimNaTurnirDto }
+export { Tim, Turnir, Igrac, Organizator, Moderator, Role, UserSignin, UserSignup, Tokens, DodajTimNaTurnirDto, User,CreateTeam,UpdatePasssword,UserData }

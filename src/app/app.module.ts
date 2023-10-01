@@ -19,7 +19,7 @@ import { TurnirComponent } from './igrac-interface/turnir/turnir.component';
 import { TimComponent } from './igrac-interface/tim/tim.component';
 import { TurnirDetailComponent } from './igrac-interface/turnir-detail/turnir-detail.component';
 import { TimDetailComponent } from './igrac-interface/tim-detail/tim-detail.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -28,15 +28,35 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { IgracComponent } from './igrac-interface/igrac/igrac.component';
 import { signinReducer } from './store/reducers/signin.reducers';
 import { signupReducer } from './store/reducers/signup.reducers';
+import { AuthInterceptor } from './services/auth-interceptor.service';
+import { CreateTeamComponent } from './igrac-interface/create-team/create-team.component';
+import { NavbarOrganizatorComponent } from './organizator/navbar-organizator/navbar-organizator.component';
+import { ProfileOrganizatorComponent } from './organizator/profile-organizator/profile-organizator.component';
+import { TurnirOrganizatorComponent } from './organizator/turnir-organizator/turnir-organizator.component';
+import { OrganizatorTimComponent } from './organizator/organizator-tim/organizator-tim.component';
+import { OgranizatorDetailTurnirComponent } from './organizator/ogranizator-detail-turnir/ogranizator-detail-turnir.component';
+import { ChangePasswordDialogComponent } from './shared-components/change-password-dialog/change-password-dialog.component';
+import { userChangePasswordReducer } from './store/reducers/user.reducers';
+import { ModeratorInterfaceComponent } from './moderator-interface/moderator-interface.component';
+import { NavbarModeratorComponent } from './moderator-interface/navbar-moderator/navbar-moderator.component';
+import { ProfileModeratorComponent } from './moderator-interface/profile-moderator/profile-moderator.component';
+import { TimModeratorComponent } from './moderator-interface/tim-moderator/tim-moderator.component';
+import { TurnirModeratorComponent } from './moderator-interface/turnir-moderator/turnir-moderator.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
+
+
+
+      
 
 
     
   ],
   imports: [
+    CreateTeamComponent,
     BrowserModule,
     FormsModule,
     EntryPageComponent,
@@ -56,14 +76,35 @@ import { signupReducer } from './store/reducers/signup.reducers';
     PaginatorComponent,
     StoreModule.forRoot({
       userSigninCredentials: signinReducer,
-      userSignupCredentials: signupReducer
+      userSignupCredentials: signupReducer,
+      updatePasswordData: userChangePasswordReducer
+
     }, {}),
     EffectsModule.forRoot([]),
+    NavbarOrganizatorComponent,
+    ProfileOrganizatorComponent,
+    TurnirOrganizatorComponent,
+    OrganizatorTimComponent,
+    OgranizatorDetailTurnirComponent,
+    ModeratorInterfaceComponent,
+    NavbarModeratorComponent,
+    ProfileModeratorComponent,
+    TurnirModeratorComponent,
+    TimModeratorComponent,    
+
+
+
 
     
     
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
 })
 export class AppModule { }

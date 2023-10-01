@@ -4,6 +4,7 @@ import { ChangePasswordDialogComponent } from 'src/app/shared-components/change-
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,12 +15,15 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ProfileComponent {
 
-  constructor(public dialog: MatDialog) { }
-
+  constructor(public dialog: MatDialog, private authService: AuthService) { }
 
   openDialog(): void {
     this.dialog.open(ChangePasswordDialogComponent, {
       width: '550px'
     });
+  }
+
+  logout(): void {
+    this.authService.logout()
   }
 }

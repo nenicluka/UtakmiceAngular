@@ -23,7 +23,11 @@ export class TurnirService {
   }
 
   goToTurnir(turnirId: number) {
-    this.router.navigate(["r/turnir", turnirId]);
+    this.router.navigate(["i/turnir", turnirId]);
+  }
+
+  goToTurnirOrg(turnirId: number) {
+    this.router.navigate(["o/turnir", turnirId]);
   }
 
   dodaj(argumenti:DodajTimNaTurnirDto)

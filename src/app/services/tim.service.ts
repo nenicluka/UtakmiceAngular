@@ -21,8 +21,10 @@ export class TimService {
   }
 
   goToTim(timId: number) {
-    this.router.navigate(["r/tim", timId]);
+    this.router.navigate(["i/tim", timId]);
   }
+
+  
 
   
 }

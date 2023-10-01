@@ -1,0 +1,67 @@
+<div mat-dialog-content style="display: flex;justify-content: center;">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Naziv
+            </mat-label>
+
+            <input #naziv (input)="setNaziv(naziv.value)"
+                matInput placeholder="Naziv" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Mesto 
+            </mat-label>
+
+            <input #mesto (input)="setMesto(mesto.value)"
+             matInput placeholder="Mesto"  autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Broj Igraca 
+            </mat-label>
+
+            <input #brojIgraca (input)="setBrojIgraca(brojIgraca.value)"
+             matInput placeholder="BrojIgraca" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Igraci Id 
+            </mat-label>
+
+            <input #igraciId (input)="setIgraci(igraciId.value)"
+             matInput placeholder="IgraciId" autocomplete="off">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>
+                Turniri Id
+            </mat-label>
+
+            <input #turnirId (input)="setTurniri(turnirId.value)"
+             matInput placeholder="TurniriId" autocomplete="off">
+        </mat-form-field>
+
+        <div class="change-password-btn-container">
+            <button (click)="createTeam()" mat-raised-button class="change-password-btn">
+                Create Team 
+            </button>
+        </div>
+
+        <mat-list role="list">
+            <p *ngFor="let error of errors$.value">
+                <mat-list-item role="listitem">
+                    {{error}}
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </p>
+        </mat-list>
+
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Close</button>
+        </div>
+    </form>
+</div>

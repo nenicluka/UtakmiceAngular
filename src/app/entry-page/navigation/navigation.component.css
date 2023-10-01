@@ -3,10 +3,11 @@
     color: whitesmoke
 }
 
-.navbar a {
-    opacity: 0.5;
+.navbar-items {
+    opacity: 0.5
 }
 
 .is-active {
-    opacity: 1;
+    opacity: 1
 }
+

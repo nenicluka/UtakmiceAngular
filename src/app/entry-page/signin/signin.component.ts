@@ -60,7 +60,7 @@ export class Signin implements OnInit {
   }
 
   setRole(role: string) {
-    const userRole: Role = role === "reader" ? Role.Igrac : (role === "moderator" ? Role.Moderator : Role.Organizator);
+    const userRole: Role = role === "igrac" ? Role.Igrac : (role === "moderator" ? Role.Moderator : Role.Organizator);
     this.store.dispatch(setUserRole({ role: userRole }))
     this.errors$.next([])
   }
