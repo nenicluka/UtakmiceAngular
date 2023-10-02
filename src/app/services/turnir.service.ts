@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { Turnir } from '../interfaces/Turnir';
 import { Router } from '@angular/router';
 import { DodajTimNaTurnirDto } from '../interfaces';
@@ -33,5 +33,25 @@ export class TurnirService {
   dodaj(argumenti:DodajTimNaTurnirDto)
   {
     this.http.post<Turnir>("http://localhost:3000/Turnir/dodaj", argumenti)
+  }
+
+  obrisi(turnirId:number)
+  {
+    try
+    {
+      console.log("http://localhost:3000/Turnir/delete/"+`${turnirId}`)
+      this.http.delete("http://localhost:3000/Turnir/delete/"+`${turnirId}`) .pipe(
+        catchError((error) => {
+          throw new Error(error)
+        })
+      ).subscribe({next:(value)=>console.log(value)})
+
+
+    }
+    catch(error:any)
+    {
+      return error
+    }
+
   }
 }

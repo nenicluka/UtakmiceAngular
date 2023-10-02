@@ -56,6 +56,7 @@ const routes: Routes = [
             { path: "profile", component: ProfileOrganizatorComponent },
             { path: "turnir", component: TurnirOrganizatorComponent },
             { path: "turnir/:id", component: OgranizatorDetailTurnirComponent },
+  
             
 
 

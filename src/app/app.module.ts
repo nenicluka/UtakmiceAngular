@@ -42,6 +42,9 @@ import { NavbarModeratorComponent } from './moderator-interface/navbar-moderator
 import { ProfileModeratorComponent } from './moderator-interface/profile-moderator/profile-moderator.component';
 import { TimModeratorComponent } from './moderator-interface/tim-moderator/tim-moderator.component';
 import { TurnirModeratorComponent } from './moderator-interface/turnir-moderator/turnir-moderator.component';
+import { DodavanjeTimaComponent } from './igrac-interface/dodavanje-tima/dodavanje-tima.component';
+import { TimEffect } from './store/effects/tim.effect';
+import { timDataReducer, timReducer } from './store/reducers/tim.reducers';
 
 
 @NgModule({
@@ -77,10 +80,14 @@ import { TurnirModeratorComponent } from './moderator-interface/turnir-moderator
     StoreModule.forRoot({
       userSigninCredentials: signinReducer,
       userSignupCredentials: signupReducer,
-      updatePasswordData: userChangePasswordReducer
+      updatePasswordData: userChangePasswordReducer,
+      addTimData: timDataReducer,
+      tim:timReducer
+
+
 
     }, {}),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([TimEffect]),
     NavbarOrganizatorComponent,
     ProfileOrganizatorComponent,
     TurnirOrganizatorComponent,
@@ -91,6 +98,7 @@ import { TurnirModeratorComponent } from './moderator-interface/turnir-moderator
     ProfileModeratorComponent,
     TurnirModeratorComponent,
     TimModeratorComponent,    
+    DodavanjeTimaComponent,
 
 
 

@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from 'src/app/services/auth.service';
+import { CreateTeamComponent } from '../create-team/create-team.component';
+import { DodavanjeTimaComponent } from '../dodavanje-tima/dodavanje-tima.component';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +21,12 @@ export class ProfileComponent {
 
   openDialog(): void {
     this.dialog.open(ChangePasswordDialogComponent, {
+      width: '550px'
+    });
+  }
+
+  dodajTim(): void {
+    this.dialog.open(DodavanjeTimaComponent, {
       width: '550px'
     });
   }

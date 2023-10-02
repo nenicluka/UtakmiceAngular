@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { Tim } from '../interfaces/Tim';
+import { CreateTeam } from '../interfaces';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimService {
 
+  errors$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([])
   constructor(private http: HttpClient, private router: Router) { }
 
   getAllTims(): Observable<Tim[]> {
@@ -24,6 +27,16 @@ export class TimService {
     this.router.navigate(["i/tim", timId]);
   }
 
+  addTim(timProps: CreateTeam) {
+    try {
+        const route = environment.api + "/tim/create"
+        return this.http.post<Tim>(route, timProps)
+    }
+    catch (err: any) {
+        throw new Error(err)
+    }
+
+}
   
 
   

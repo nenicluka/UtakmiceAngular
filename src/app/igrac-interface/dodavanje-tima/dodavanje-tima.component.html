@@ -5,7 +5,7 @@
                 Naziv
             </mat-label>
 
-            <input #naziv (input)="setNaziv(naziv.value)"
+            <input #naziv (input)="getUserReviewFromForm('naziv', naziv.value)"
                 matInput placeholder="Naziv" autocomplete="off">
         </mat-form-field>
 
@@ -14,7 +14,7 @@
                 Mesto 
             </mat-label>
 
-            <input #mesto (input)="setMesto(mesto.value)"
+            <input #mesto (input)="getUserReviewFromForm('mesto', mesto.value)"
              matInput placeholder="Mesto"  autocomplete="off">
         </mat-form-field>
 
@@ -23,7 +23,7 @@
                 Broj Igraca 
             </mat-label>
 
-            <input #brojIgraca (input)="setBrojIgraca(brojIgraca.value)"
+            <input #brojIgraca (input)="getUserReviewFromForm('brojIgraca', brojIgraca.value)"
              matInput placeholder="BrojIgraca" autocomplete="off">
         </mat-form-field>
 
@@ -32,21 +32,21 @@
                 Igraci Id 
             </mat-label>
 
-            <input #igraciId (input)="setIgraci(igraciId.value)"
+            <input #igraciIds (input)="getUserReviewFromForm('igraciIds', igraciIds.value)"
              matInput placeholder="IgraciId" autocomplete="off">
         </mat-form-field>
 
-        <!-- <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width">
             <mat-label>
                 Turniri Id
             </mat-label>
 
-            <input #turnirId (input)="setTurniri(turnirId.value)"
+            <input #naziviTurnira (input)="getUserReviewFromForm('naziviTurnira', naziviTurnira.value)"
              matInput placeholder="TurniriId" autocomplete="off">
-        </mat-form-field> -->
+        </mat-form-field>
 
         <div class="change-password-btn-container">
-            <button (click)="createTeam()" mat-raised-button class="change-password-btn">
+            <button (click)="addTim()" mat-raised-button class="change-password-btn">
                 Create Team 
             </button>
         </div>

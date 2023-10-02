@@ -6,5 +6,5 @@ export interface CreateTeam {
     mesto: string
     brojIgraca: number
     igraciIds: number[]
-    naziviTurnira: string[]  
+    naziviTurnira: number[]  
 }

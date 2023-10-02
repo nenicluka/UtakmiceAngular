@@ -48,7 +48,7 @@ export class AuthService {
         localStorage.setItem("userData", JSON.stringify(user))
         this.user$.next(user)
 
-        const nextPageRoute: string = role === Role.Igrac ? "i/profile" : (role === Role.Moderator ? "i/tim" : "o/profile");
+        const nextPageRoute: string = role === Role.Igrac ? "i/profile" : (role === Role.Moderator ? "m/profile" : "o/profile");
         this.router.navigate([nextPageRoute])
 
 
@@ -81,7 +81,6 @@ export class AuthService {
             errors$.next(["Wrong password provided"])
 
             throw new Error(error)
-            return EMPTY
           })
         ).subscribe({
           next: () => {
@@ -115,7 +114,6 @@ async createTeam(telo:CreateTeam,errors$: BehaviorSubject<string[]>)
       this.http.post<CreateTeam>(url,body)
       .pipe(
         catchError((error) => {
-          // verovatno ima neka fora da se ovo bolje ishendla
           if (typeof error.error.message !== "object") {
             errors$.next([error.error.message])
           }
@@ -126,18 +124,14 @@ async createTeam(telo:CreateTeam,errors$: BehaviorSubject<string[]>)
           throw new Error(error)
         })
       )
-  
-
 
     } 
-
 
 
     catch(error:any)
     {
       console.log(error)
     }
-
 
 
     

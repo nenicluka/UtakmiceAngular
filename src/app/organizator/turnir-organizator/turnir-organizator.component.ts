@@ -12,13 +12,15 @@ import { TimService } from 'src/app/services/tim.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import { MatChipsModule } from '@angular/material/chips';
+
 
 @Component({
   selector: 'app-turnir-organizator',
   templateUrl: './turnir-organizator.component.html',
   styleUrls: ['./turnir-organizator.component.css'],
   standalone: true,
-  imports: [MatCardModule, CommonModule, SpinnerComponent, PaginatorComponent,FormsModule, MatFormFieldModule, MatInputModule],
+  imports: [MatCardModule, CommonModule, SpinnerComponent, PaginatorComponent,FormsModule, MatFormFieldModule, MatInputModule,MatChipsModule],
 })
 export class TurnirOrganizatorComponent implements OnInit {
 
@@ -66,4 +68,10 @@ export class TurnirOrganizatorComponent implements OnInit {
   {
     console.log(tr)
   }
+
+   deleteTurnir(id:number)
+  {
+    return this.turnirService.obrisi(id);
+  }
+
 }

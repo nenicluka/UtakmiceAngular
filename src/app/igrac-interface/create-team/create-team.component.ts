@@ -25,11 +25,11 @@ export class CreateTeamComponent {
 
   private telo:CreateTeam=
   {
-    "naziv":'',
-    "mesto":'',
-    "brojIgraca": 0,
-    "igraciIds":[],
-    "naziviTurnira":[],
+    naziv:'',
+    mesto:'',
+    brojIgraca: 0,
+    igraciIds:[],
+    naziviTurnira:[],
 
   }
   setNaziv(value:string){this.telo.naziv=value}
@@ -46,12 +46,13 @@ export class CreateTeamComponent {
     // Postavite igraciIds u vašem objektu
     this.telo.igraciIds = igraci;
   }  
-  setTurniri(value: string): void {
-    // Razdvojite string na osnovu zareza i konvertujte delove u niz stringova
-    const turniri: string[] = value.split(',').map(str => str.trim());
-    // Postavite niz naziva turnira u vašem objektu
-    this.telo.naziviTurnira = turniri;
-  }
+  // setTurniri(value: string): void {
+  //   // Razdvojite string na osnovu zareza i konvertujte delove u niz stringova
+  //   const turniri: string[] = value.split(',').map(str => str.trim());
+  //   // Postavite niz naziva turnira u vašem objektu
+  //   this.telo.naziviTurnira = turniri;
+  // }
+
   createTeam()
   {
     this.authService.createTeam(this.telo,this.errors$)
