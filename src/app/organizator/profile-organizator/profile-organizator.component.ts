@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from 'src/app/services/auth.service';
+import { DodavanjeTurniraOrgComponent } from '../dodavanje-turnira-org/dodavanje-turnira-org.component';
 
 @Component({
   selector: 'app-profile-organizator',
@@ -26,4 +27,12 @@ export class ProfileOrganizatorComponent {
   logout(): void {
     this.authService.logout()
   }
+
+  dodajTurnir(): void {
+    this.dialog.open(DodavanjeTurniraOrgComponent, {
+      width: '550px'
+    });
+  }
+
+
 }

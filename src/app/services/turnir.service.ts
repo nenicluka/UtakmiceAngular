@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError } from 'rxjs';
 import { Turnir } from '../interfaces/Turnir';
 import { Router } from '@angular/router';
-import { DodajTimNaTurnirDto } from '../interfaces';
+import { CreateTurnir, DodajTimNaTurnirDto, PrijaviTim } from '../interfaces';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { DodajTimNaTurnirDto } from '../interfaces';
 export class TurnirService {
 
   constructor(private http: HttpClient, private router: Router) { }
+  errors$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([])
 
   //OBSERVABLE je set bilo kojih vrednosti koji se menja tokom vremena
   getAllTurniri(): Observable<Turnir[]> {
@@ -53,5 +55,17 @@ export class TurnirService {
       return error
     }
 
+  }
+
+  addTurnir(turnirProps: CreateTurnir) {
+    try {
+        const route = environment.api + "/Turnir/create"
+        console.log(route)
+
+        return this.http.post<Turnir>(route, turnirProps)
+    }
+    catch (err: any) {
+        throw new Error(err)
+    }
   }
 }

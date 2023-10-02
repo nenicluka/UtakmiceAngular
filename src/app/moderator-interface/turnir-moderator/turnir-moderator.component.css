@@ -10,3 +10,23 @@
     width: 90vw;
     margin-top: 20px;
 }
+.obrisi-button {
+    background-color: red;
+    color: white;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Dodajte tranziciju za box-shadow i transform svojstva */
+
+    /* Podešavanja za normalno stanje */
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0); /* Bez senke */
+    transform: translate(0px, 0px); /* Bez transformacije */
+
+    /* Podešavanja za hover stanje */
+}
+
+.obrisi-button:hover {
+    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5); /* Senka koja se pojavljuje pri hoveru */
+    transform: translate(0px, -5px); /* Pomera dugme nagore za 5 piksela */
+}
+.polje
+{
+    margin-left: 25px;
+}

@@ -1,4 +1,5 @@
 <spinner [isSpinnerActive]="!length"></spinner>
+<input type="text" class="polje" placeholder="Pretraži timove..." [(ngModel)]="searchTerm" (input)="filterTimovi()" />
 
 <div *ngIf="length" class="tim-container">
     <paginator [length]="length" (pageChanged)=" onChangingPage($event)">
@@ -11,6 +12,9 @@
                     {{tim.naziv}}
                 </mat-card-title>
 
+                <button mat-button class="obrisi-button" (click)="deleteTim(tim.id)">
+                    Obrisi
+                  </button>
                 <!-- <mat-card-subtitle>
                     Rating: {{book.rating}} out of {{book.numberOfReviews}} reviews
                 </mat-card-subtitle> -->
@@ -26,15 +30,21 @@
 
         <!-- treba da napravim da ne moze se klikce na ove chipove, tj da ne mog da menjaju boju-->
 
+
         <mat-card-content>
             <mat-card-subtitle>
                 Turniri:
             </mat-card-subtitle>
 
+            
+
             <mat-chip-listbox>
                 <mat-chip-option *ngFor="let turnir of tim.turnir" (click)="goToTurnir(turnir.id)">
                     {{turnir.naziv}} {{turnir.mesto}}
+                    
                 </mat-chip-option>
+
+
             </mat-chip-listbox>
 
         </mat-card-content>

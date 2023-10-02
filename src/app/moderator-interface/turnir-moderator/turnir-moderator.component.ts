@@ -19,7 +19,7 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './turnir-moderator.component.html',
   styleUrls: ['./turnir-moderator.component.css'],
   standalone: true,
-  imports: [MatCardModule, CommonModule, SpinnerComponent, PaginatorComponent,FormsModule, MatFormFieldModule, MatInputModule],
+  imports: [MatCardModule, CommonModule, SpinnerComponent, PaginatorComponent,FormsModule, MatFormFieldModule, MatInputModule,  FormsModule],
 })
 export class TurnirModeratorComponent implements OnInit {
 
@@ -66,5 +66,23 @@ export class TurnirModeratorComponent implements OnInit {
   setvalue(tr:string)
   {
     console.log(tr)
+  }
+
+  deleteTurnir(id:number)
+  {
+    return this.turnirService.obrisi(id);
+  }
+
+  searchTerm: string = ''; // Dodajte promenljivu searchTerm
+
+  // ... ostatak koda
+
+  filterTurniri() {
+    const filteredIgraci = this.turnir$.value.filter(turnir => {
+      const fullName = `${turnir.naziv} ${turnir.opis}`.toLowerCase();
+      return fullName.includes(this.searchTerm.toLowerCase());
+    });
+    this.length = filteredIgraci.length;
+    this.turnirForCurrentPage$ = of(filteredIgraci.slice(0, 5));
   }
 }

@@ -3,11 +3,17 @@ body {
     font-family: 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
+.special-button:hover {
+    background: #007bff; /* Plava boja */
+    color: #ffffff; /* Bela boja za tekst */
+    opacity: 1; /* Povećaj opacity na 1 kada je hover-ovan */
+  }
+
 .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #007bff;
+    /* background-color: #007bff; */
     height: 60px; /* Povećajte visinu trake prema potrebi */
     padding: 0 20px;
 }

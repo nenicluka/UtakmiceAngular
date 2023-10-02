@@ -31,6 +31,7 @@ export class ProfileComponent {
     });
   }
 
+
   logout(): void {
     this.authService.logout()
   }

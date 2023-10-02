@@ -1,23 +1,20 @@
 <h1 class="welcome-message">Dobrodošli kao Igrac</h1>
 
-<mat-chip mat-button (click)="dodajTim()">
+<mat-chip mat-button class="special-button" (click)="dodajTim()">
     Dodaj Tim
 </mat-chip>
 
 <mat-chip-listbox class="mat-mdc-chip-set-stacked">
 
 
-    <mat-chip mat-button (click)="openDialog()">
+    <mat-chip mat-button class="special-button" (click)="openDialog()">
         Change Password
     </mat-chip>
 
-    <mat-chip (click)="logout()">
+    <mat-chip class="special-button" (click)="logout()">
         Logout
     </mat-chip>
 
-    <mat-chip>
-        Delete Account
-    </mat-chip>
 
 
 

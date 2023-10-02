@@ -21,6 +21,7 @@ import { ModeratorInterfaceComponent } from '../moderator-interface/moderator-in
 import { ProfileModeratorComponent } from '../moderator-interface/profile-moderator/profile-moderator.component';
 import { TurnirModeratorComponent } from '../moderator-interface/turnir-moderator/turnir-moderator.component';
 import { TimModeratorComponent } from '../moderator-interface/tim-moderator/tim-moderator.component';
+import { ModeratorIgracComponent } from '../moderator-interface/moderator-igrac/moderator-igrac.component';
 // import { ReaderInterfaceComponent } from '../reader-interface/reader-interface.component';
 // import { BooksComponent } from '../reader-interface/books/books.component';
 // import { ProfileComponent } from '../reader-interface/profile/profile.component';
@@ -51,7 +52,7 @@ const routes: Routes = [
     },
     {
         path: "o", component: OrganizatorComponent,
-        //canActivate: [AuthGuard, RolesGuard],
+        canActivate: [AuthGuard, RolesGuard],
         children: [
             { path: "profile", component: ProfileOrganizatorComponent },
             { path: "turnir", component: TurnirOrganizatorComponent },
@@ -64,11 +65,13 @@ const routes: Routes = [
     },
     {
         path: "m", component: ModeratorInterfaceComponent,
-        //canActivate: [AuthGuard, RolesGuard],
+        canActivate: [AuthGuard, RolesGuard],
         children: [
             { path: "profile", component: ProfileModeratorComponent },
             { path: "turnir", component: TurnirModeratorComponent },
             { path: "tim", component: TimModeratorComponent },
+            { path: "igrac", component: ModeratorIgracComponent},
+
 
            // { path: "turnir/:id", component: OgranizatorDetailTurnirComponent },
             

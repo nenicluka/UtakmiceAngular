@@ -12,6 +12,7 @@ import { TimService } from 'src/app/services/tim.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TurnirService } from 'src/app/services/turnir.service';
 import { MatDialog } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -19,7 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './tim-moderator.component.html',
   styleUrls: ['./tim-moderator.component.css'],
   standalone: true,
-  imports: [MatDividerModule, CommonModule, PaginatorComponent, SpinnerComponent, MatCardModule, MatChipsModule],
+  imports: [MatDividerModule, CommonModule, PaginatorComponent, SpinnerComponent, MatCardModule, MatChipsModule, FormsModule],
 })
 export class TimModeratorComponent implements OnInit {
   tim$: BehaviorSubject<Tim[]> = new BehaviorSubject<Tim[]>([])
@@ -60,6 +61,26 @@ export class TimModeratorComponent implements OnInit {
   goToTurnir(id: number) {
     this.turnirService.goToTurnir(id)
   }
+
+  
+  deleteTim(id:number)
+  {
+    return this.timService.obrisi(id);
+  }
+
+  searchTerm: string = ''; // Dodajte promenljivu searchTerm
+
+  // ... ostatak koda
+
+  filterTimovi() {
+    const filteredIgraci = this.tim$.value.filter(tim => {
+      const fullName = `${tim.naziv}`.toLowerCase();
+      return fullName.includes(this.searchTerm.toLowerCase());
+    });
+    this.length = filteredIgraci.length;
+    this.timForCurrentPage$ = of(filteredIgraci.slice(0, 5));
+  }
+  
 
 
 }

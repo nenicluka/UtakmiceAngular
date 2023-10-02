@@ -9,4 +9,8 @@
     margin-top: 50px;
     font-size: 36px;
   }
-  
+  .special-button:hover {
+    background: #007bff; /* Plava boja */
+    color: #ffffff; /* Bela boja za tekst */
+    opacity: 1; /* Povećaj opacity na 1 kada je hover-ovan */
+  }

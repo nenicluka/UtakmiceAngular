@@ -1,7 +1,8 @@
 .home-paragraph {
+    margin-top: 150px;
     text-align: center; /* Centriraj tekst unutar elementa */
     margin-bottom: 30px;
-    font-size: 24px;
+    font-size: 60px;
 }
 
 .explore-paragraph {
@@ -11,6 +12,9 @@
 }
 
 .login-container {
+    font-size: 35px;
+
+    margin-top: 150px;
     width: 100vw;
     display: flex;
     justify-content: center;

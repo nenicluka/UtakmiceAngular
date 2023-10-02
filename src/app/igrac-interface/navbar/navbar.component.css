@@ -7,9 +7,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #007bff;
+    /* background-color: #007bff; */
     height: 60px; /* Povećajte visinu trake prema potrebi */
     padding: 0 20px;
+    
 }
 
 .nav-item {
@@ -17,15 +18,20 @@ body {
     color: white;
     text-transform: uppercase;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Dodajte tranziciju za color i background-color */
+    padding: 10px 20px; /* Dodajte ovo da biste povećali površinu na koju se primenjuje hover efekat */
+    border-radius: 5px; /* Dodajte ovo da biste zaoblili uglove dugmeta */
+    
 }
 
 .nav-item:hover {
-    color: #0056b3;
+    color: #ffffff;
+    background-color: #007bff; /* Plava boja koja će se pojaviti kada pređete preko dugmeta */
 }
 
 .is-active {
     color: #0056b3;
+    background-color: #007bff; /* Dodajte istu boju kao hover efekat kada je dugme aktivno */
 }
 
 .welcome-message {
@@ -37,6 +43,7 @@ body {
 .profile-icon {
     cursor: pointer;
     color: white;
+    background-color: #ffffff;
     font-size: 24px;
     transition: color 0.3s ease;
 }

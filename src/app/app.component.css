@@ -1,6 +1,15 @@
-.background {
+/* .background {
     background: #cecece;
     height: auto;
     min-height: 100vh;
     width: 100vw
+} */
+
+.background {
+    background-image: url('../../src/assets/basket.jpg'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
 }

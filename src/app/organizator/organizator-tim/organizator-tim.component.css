@@ -10,3 +10,10 @@
     width: 90vw;
     margin-top: 20px;
 }
+
+
+.obrisi-button {
+    background-color: red;
+    color: white; /* Beli tekst na crvenoj pozadini */
+    /* Dodajte ostale stilove prema vašim potrebama */
+  }

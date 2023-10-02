@@ -1,4 +1,4 @@
-.tim-container {
+.igrac-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,10 @@
     width: 100vw;
 }
 
-.tim-card {
+.igrac-card {
     width: 90vw;
     margin-top: 20px;
 }
-
 .obrisi-button {
     background-color: red;
     color: white;

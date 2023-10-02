@@ -37,6 +37,26 @@ export class TimService {
     }
 
 }
+
+obrisi(timId:number)
+{
+  try
+  {
+    console.log("http://localhost:3000/Tim/delete/"+`${timId}`)
+    this.http.delete("http://localhost:3000/Tim/delete/"+`${timId}`) .pipe(
+      catchError((error) => {
+        throw new Error(error)
+      })
+    ).subscribe({next:(value)=>console.log(value)})
+
+
+  }
+  catch(error:any)
+  {
+    return error
+  }
+
+}
   
 
   

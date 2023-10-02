@@ -12,5 +12,7 @@ import { User } from "./User";
 import { CreateTeam } from "./CreateTeam";
 import { UpdatePasssword } from "./UpdatePassword";
 import { UserData } from "./UserData";
+import { PrijaviTim } from "./PrijaviTim";
+import { CreateTurnir } from "./CreateTurnir";
 
-export { Tim, Turnir, Igrac, Organizator, Moderator, Role, UserSignin, UserSignup, Tokens, DodajTimNaTurnirDto, User,CreateTeam,UpdatePasssword,UserData }
+export { Tim, Turnir, Igrac, Organizator, Moderator, Role, UserSignin, UserSignup, Tokens, DodajTimNaTurnirDto, User,CreateTeam,UpdatePasssword,UserData,PrijaviTim,CreateTurnir }

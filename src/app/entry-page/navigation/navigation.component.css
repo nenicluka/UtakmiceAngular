@@ -1,5 +1,5 @@
 .navbar {
-    background: #ffffff;
+    /* background: #ffffff; */
     color: whitesmoke
 }
 
@@ -11,3 +11,8 @@
     opacity: 1
 }
 
+.special-button:hover {
+    background: #007bff; /* Plava boja */
+    color: #ffffff; /* Bela boja za tekst */
+    opacity: 1; /* Povećaj opacity na 1 kada je hover-ovan */
+}

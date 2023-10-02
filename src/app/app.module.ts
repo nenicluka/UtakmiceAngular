@@ -45,11 +45,17 @@ import { TurnirModeratorComponent } from './moderator-interface/turnir-moderator
 import { DodavanjeTimaComponent } from './igrac-interface/dodavanje-tima/dodavanje-tima.component';
 import { TimEffect } from './store/effects/tim.effect';
 import { timDataReducer, timReducer } from './store/reducers/tim.reducers';
+import { turnirDataReducer, turnirReducer } from './store/reducers/turnir.reducers';
+import { DodavanjeTurniraOrgComponent } from './organizator/dodavanje-turnira-org/dodavanje-turnira-org.component';
+import { ModeratorIgracComponent } from './moderator-interface/moderator-igrac/moderator-igrac.component';
+import { CommonModule } from '@angular/common';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
 
 
 
@@ -82,7 +88,12 @@ import { timDataReducer, timReducer } from './store/reducers/tim.reducers';
       userSignupCredentials: signupReducer,
       updatePasswordData: userChangePasswordReducer,
       addTimData: timDataReducer,
-      tim:timReducer
+      tim:timReducer,
+      addTurnirData: turnirDataReducer,
+      turnir:turnirReducer,
+
+
+
 
 
 
@@ -99,7 +110,8 @@ import { timDataReducer, timReducer } from './store/reducers/tim.reducers';
     TurnirModeratorComponent,
     TimModeratorComponent,    
     DodavanjeTimaComponent,
-
+    DodavanjeTurniraOrgComponent,
+    ModeratorIgracComponent,
 
 
 
